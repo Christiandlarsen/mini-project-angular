@@ -1,7 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'my-app',
-  template: `<h1>Hello {{name}}</h1>`,
+  template: `
+  			<site-header></site-header>
+  			<router-outlet></router-outlet>
+  			<site-footer></site-footer>`,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  {
+	constructor(private router: Router) { }
+
+    ngOnInit() {
+        this.router.events.subscribe((evt) => {
+            if (!(evt instanceof NavigationEnd)) {
+                return;
+            }
+            document.body.scrollTop = 0;
+        });
+    }
+}

@@ -1,0 +1,69 @@
+<section class="slider">
+	<ul id="slippry-demo">
+		<li>
+			<img src="./app/img/slider-img-1.jpg" alt="" width="100%">
+		</li>
+	</ul>
+</section>
+
+<div class="container">
+	<section class="categories">
+		<div class="col-xs-12 col-md-4">
+			<a>
+				<img src="./app/img/shoes.png" alt="Image of shoes">
+				<h2>Football Shoes</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing,
+vivamus congue nulla leo, quis imperdiet magna.</p>
+			</a>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<a>
+				<img src="./app/img/clothes.png" alt="Image of modern clothes">
+				<h2>Modern Clothes</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing,
+vivamus congue nulla leo, quis imperdiet magna.</p>
+			</a>
+		</div>
+		<div class="col-xs-12 col-md-4">
+			<a>
+				<img src="./app/img/bags.png" alt="Image of bags and accessories">
+				<h2>Bags &amp; Accessories</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing,
+vivamus congue nulla leo, quis imperdiet magna.</p>
+			</a>
+		</div>
+	</section>
+
+	<section class="products">
+		<h2>
+			<div class="line"></div>
+			Popular products
+			<div class="line"></div>
+		</h2>
+			<div class="col-xs-12 col-md-3 product" *ngFor="let product of products">
+				<div class="inner">
+					<div class="product-top">
+						<p><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i><i class="fa fa-star" aria-hidden="true"></i></p>
+					<a [routerLink]="['/single', product.id]">
+						<img src="{{product.image[0]}}" alt="{{product.name}}">
+					</a>
+					</div>
+					<div class="product-content">
+					<a [routerLink]="['/single', product.id]">
+						<h3>{{product.name}}</h3>
+						<h4>{{product.type}}</h4>
+						<p class="product-text">{{product.description}}.</p>
+					</a>
+						<div class="product-price">
+							<p class="price">{{product.price - (product.price * product.discountrate) | currency:'DKK'}}</p>
+							<div class="icons">
+								<p><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></p>
+								<p><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></p>
+							</div>
+						</div>
+					</div>
+					<button>Buy now</button>
+				</div>
+			</div>
+	</section>
+</div>

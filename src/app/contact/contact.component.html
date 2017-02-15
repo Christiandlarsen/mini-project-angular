@@ -1,0 +1,29 @@
+<div class="contact">
+	<div class="container">
+		<h1>Contact us</h1>
+		<form (ngSubmit)="register(contactformForm, $event)" #contactformForm="ngForm" novalidate [hidden]="hasBeenSubmitted">
+			<div>
+				<label for="name">Name:</label>
+				<input type="text" name="name" placeholder="YOUR NAME..." [(ngModel)]="model.contactname">
+			</div>
+			<div>
+				<label for="email">Email:</label>
+				<input type="email" name="email" placeholder="YOUR E-MAIL..." pattern="^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$" [(ngModel)]="model.contactemail">
+			</div>
+			<div class="message-field">
+				<label for="message">Message:</label>
+				<textarea name="message" id="" cols="30" rows="10" placeholder="YOUR TEXT..." [(ngModel)]="model.contactmessage"></textarea>
+			</div>
+			<input type="submit" value="SEND MESSAGE">
+		</form>
+	</div>
+	<div class="form-success" style="text-align:center;" [hidden]="!hasBeenSubmitted">
+	<h1>Thanks for submitting {{model.contactname}}</h1>
+	<p>You submitted the following information</p>
+	<ul style="list-style-type:none;">
+		<li>{{model.contactname}}</li>
+		<li>{{model.contactemail}}</li>
+		<li>{{model.contactmessage}}</li>
+	</ul>
+	</div>
+</div>

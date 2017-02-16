@@ -9,7 +9,7 @@ export class DataService {
 		return PRODUCTDATA;
 	}
 
-	getDataByID(productid:number) { // In reality should be replaced by HTTP request to an API
+	getDataByID(productid:number) {
 		return PRODUCTDATA.find(r => r.id == productid); 
 	}
 }
